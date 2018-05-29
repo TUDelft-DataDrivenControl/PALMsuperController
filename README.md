@@ -11,3 +11,6 @@ The software package offers a communication protocol between the in FORTRAN writ
 1) MATLAB (tested on 2016 version).
 2) Complete installation of PALM. 
 
+## Availability:
+
+The software will be available after publication.
