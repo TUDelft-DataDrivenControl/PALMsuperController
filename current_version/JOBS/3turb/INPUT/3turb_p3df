@@ -1,0 +1,73 @@
+ &inipar nx = 1919, ny = 255, nz = 128,
+         dx = 15.0, dy = 15.0, dz = 10.0,
+
+         dz_stretch_level = 600.0,
+         dz_stretch_factor = 1.08,
+         dz_max = 50.0,                 
+ 
+         initializing_actions = 'cyclic_fill',
+         reference_state = 'horizontal_average',
+         turbulent_inflow = .F.,
+         recycling_width = 5000.0,
+         inflow_damping_height = 600.0,
+         recycling_yshift = .T.,
+
+         bc_lr = 'dirichlet/radiation',
+         psolver = 'multigrid',
+         mg_cycles = 4,
+         mg_switch_to_pe0_level = -1,
+         bc_pt_b = 'dirichlet',
+         
+         conserve_volume_flow = .F.,
+         rayleigh_damping_factor = 0.01,
+
+         ug_surface = 9.0, vg_surface = -2.0,
+
+         phi = 54.0,
+
+         roughness_length = 0.002,
+
+         pt_surface                 = 283.15,
+         pt_vertical_gradient       = 8.0, 1.0,
+         pt_vertical_gradient_level = 500.0, 600.0,
+
+         surface_heatflux = 0.0, /
+
+&d3par end_time = 750.0
+
+         dt = 0.5
+
+         npex = 4, npey = 4,
+
+         termination_time_needed = 3600.0,
+         
+         create_disturbances = .F.,
+         
+         dt_run_control = 1.0
+           
+         dt_domask = 1.0
+		 
+		 data_output_masks(1,:) = 'u', 'v', 'w',
+		 
+         mask_x_loop(1,:) = 5100.0, 7300.0, 15.0,
+         mask_y_loop(1,:) = 700.0, 1300.0, 15.0,
+         mask_z_loop(1,:) = 30.0, 120.0, 20.0, /
+
+ &wind_turbine_par
+         time_turbine_on  = 0.0,
+         
+         turb_mod = 'adm'
+
+         nturbines = 3,
+         rcx =   5700.0, 6240.0, 6780.0,
+         rcy =   1000.0, 1000.0, 1000.0,
+         rcz =   90.0, 90.0, 90.0,
+         rr  =   45.0, 45.0, 45.0,
+         rnac =  1.5, 1.5, 1.5,
+         dtow =  4.0, 4.0, 4.0,
+         
+         phi_yaw = 0.0,0.0,0.0,
+         tilt = 0.0,
+        
+         turb_cd_nacelle = 0.85,
+         turb_cd_tower   = 1.2, /

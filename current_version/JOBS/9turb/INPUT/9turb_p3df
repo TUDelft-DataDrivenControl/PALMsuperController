@@ -1,0 +1,73 @@
+ &inipar nx = 1023, ny = 255, nz = 128, 
+         dx = 15.0, dy = 15.0, dz = 10.0,
+
+         dz_stretch_level = 600.0,
+         dz_stretch_factor = 1.08,
+         dz_max = 50.0,                 
+ 
+         initializing_actions = 'cyclic_fill',
+         reference_state = 'horizontal_average',
+         turbulent_inflow = .T.,
+         recycling_width = 5120.0,
+         inflow_damping_height = 600.0,
+         recycling_yshift = .T.,
+
+         bc_lr = 'dirichlet/radiation',
+         psolver = 'multigrid',
+         mg_cycles = 4,
+         mg_switch_to_pe0_level = -1,
+         bc_pt_b = 'dirichlet',
+         
+         conserve_volume_flow = .F.,
+         rayleigh_damping_factor = 0.01,
+
+         ug_surface = 12.0, vg_surface = -3.0,
+
+         phi = 54.0,
+
+         roughness_length = 0.002,
+
+         pt_surface                 = 283.15,
+         pt_vertical_gradient       = 8.0, 1.0,
+         pt_vertical_gradient_level = 500.0, 600.0,
+
+         surface_heatflux = 0.0, /
+
+&d3par end_time = 800.0
+
+         dt = 0.5
+
+         npex = 4, npey = 4,
+
+         termination_time_needed = 3600.0,
+         
+         create_disturbances = .F.,
+         
+         dt_run_control = 1.0
+           
+         dt_domask = 1.0
+        
+         data_output_masks(1,:) = 'u','v',
+
+         mask_x_loop(1,:) = 5420.0, 8010.0, 22.0,
+         mask_y_loop(1,:) = 841.0, 2097.0, 18.0,
+         mask_z(1,:)      = 30.0, 60.0, 90.0, 120.0, 150.0, /
+
+ &wind_turbine_par
+         time_turbine_on  = 0.0,
+         
+         turb_mod = 'adm'
+
+         nturbines = 9,
+         rcx =   6000.0, 6000.0, 6000.0, 6630.0, 6630.0, 6630.0, 7260.0, 7260.0, 7260.0,
+         rcy =   1091.0, 1469.0, 1847.0, 1091.0, 1469.0, 1847.0, 1091.0, 1469.0, 1847.0,
+         rcz =   90.0, 90.0, 90.0, 90.0, 90.0, 90.0, 90.0, 90.0, 90.0,
+         rr  =   60.0, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0,
+         rnac =  1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,
+         dtow =  4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0,
+         
+         phi_yaw = 0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+         tilt = 0.0,
+        
+         turb_cd_nacelle = 0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85,
+         turb_cd_tower   = 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2 /
