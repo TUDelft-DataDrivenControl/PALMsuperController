@@ -7,7 +7,7 @@ Wp.controller    = 'WRC';
 
 addpath(genpath(strcat(Wp.controller,'/WFCon')));
 addpath(genpath(strcat(Wp.controller,'/libraries')));
-addpath(genpath(strcat('USER_CODE/6turb/matlab/mexcdf')));
+addpath(genpath('BIN/mexcdf'));
 
 Wp.filename      = strcat(Wp.name,'_m01.nc');
 Wp.Nt            = 2;                        % #turbines
