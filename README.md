@@ -25,8 +25,11 @@ Stochastic model predictive controller that provides wind farm power tracking.
 WRC:
 Hinf controller that provides wake redirection control.
 
+MAKE_WTM:
+Contains a function that generates excitation signals for PALM. 
+ 
 BIN:
-Contains MATLAB function that plots PALM flow data (.nc) at hub-heigth and power signals.
+Contains MATLAB function that plots PALM flow data (.nc) at hub-height and power signals.
 
 
 ## Publications:
