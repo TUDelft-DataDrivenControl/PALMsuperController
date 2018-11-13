@@ -50,15 +50,15 @@ Journal of Physics: Conference Series, 2018
 
 
 ## Notes:
+
 1)
-The mexcdf toolbox is only used to extract PALM data from an .nc file. This occurs only at the end of 
-a simulation. The toolbox is reduced to its minimum. If problems occur, please download a full version
-of the mexcdf toolbox and place it in the correct directory.
+The mexcdf toolbox is only used to extract PALM data from an .nc file. This occurs only at the end of a simulation. The toolbox is reduced to its minimum. If problems occur, please download a full version of the mexcdf toolbox and place it in the correct directory.
+
 2)
 PALM restart data is not provided due to its size. This data should be placed in the RESTART_DATA directory.
+
 3)
-A solver (like CPLEX) and Yalmip are not provided due to their size. They should be installed and placed in the 
-libraries directory of each controller. 
+A solver (like CPLEX) and Yalmip are not provided due to their size. They should be installed and placed in the libraries directory of each controller.
+ 
 4)
-The folder structure between PALM revisions can slightly differ. Minor modification should be made
-in the controller .m files when a different PALM folder structure is considered.  
+The folder structure between PALM revisions can slightly differ. Minor modification should be made in the controller .m files when a different PALM folder structure is considered. 
