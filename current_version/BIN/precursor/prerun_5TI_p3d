@@ -1,0 +1,44 @@
+ &inipar nx = 511, ny = 255, nz = 128,
+         dx = 10.0, dy = 10.0, dz = 10.0,
+
+         dz_stretch_level = 600.0,
+         dz_stretch_factor = 1.08,
+         dz_max = 50.0,
+
+         fft_method = 'temperton-algorithm',
+
+         initializing_actions = 'set_constant_profiles',
+         reference_state = 'horizontal_average',
+
+         rayleigh_damping_height = 1000.0,
+         rayleigh_damping_factor = 0.01,
+         galilei_transformation = .T.,
+
+         ug_surface = 9.0, vg_surface = -2.0,
+
+         phi = 54.0,
+
+         roughness_length = 0.002, 
+
+         pt_surface                 = 283.15,
+         pt_vertical_gradient       = 8.0, 1.0,
+         pt_vertical_gradient_level = 500.0, 600.0,
+
+         surface_heatflux = 0.0, /
+
+ &d3par  end_time = 64800.0, ! Gesamtlaufzeit 18 h
+
+         npex = 4, npey = 4,
+
+         termination_time_needed = 3000.0,
+
+         create_disturbances = .T.,
+         dt_disturb = 150.0, disturbance_energy_limit = 0.01,
+
+         dt_run_control = 60.0,
+
+         dt_dopr = 1800.0,
+         averaging_interval_pr = 120.0,
+         data_output_pr = 'pt', '#u', '#v', 'w', 'e', 'e*', 'u*2', 'v*2', 'w*2', 'l', 'km', 'kh','w"u"', 'w*u*', 'wu', 'w"v"', 'w*v*', 'wv', 'w"pt"', 'w*pt*', 'wpt', /
+
+! mrun -d prerun_15_TI -h lchpc06 -K parallel -X 16 -T 8 -t 3600000 -m 64000 -v -b -q dcsc -r "d3# ma# restart"
