@@ -11,14 +11,29 @@ read pre
 
 if [ -f "JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters01" ]; then
 for i in $(seq 1 $nturbines ); do
+	
+	if [ "$i" -lt 10 ]; then
 	# store the turbine file as .txt file
-    iconv --from-code US-ASCII --to-code UTF-8 -c JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters0${i} > JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters0${i}.txt # not suitable for 10+ turbines yet
+    iconv --from-code US-ASCII --to-code UTF-8 -c JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters0${i} > JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters0${i}.txt 
  	# remove first two line   
     sed -i 1,2d JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters0${i}.txt
     # move turbine files
     mv JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters0${i}.txt COPIED_FILES/
     # remove original file
     rm JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters0${i}
+
+    else
+	# store the turbine file as .txt file
+    iconv --from-code US-ASCII --to-code UTF-8 -c JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters${i} > JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters${i}.txt 
+ 	# remove first two line   
+    sed -i 1,2d JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters${i}.txt
+    # move turbine files
+    mv JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters${i}.txt COPIED_FILES/
+    # remove original file
+    rm JOBS/$Wpname/MONITORING/${Wpname}_turbine_parameters${i}    
+   
+    fi
+	 
 done
 fi
 
