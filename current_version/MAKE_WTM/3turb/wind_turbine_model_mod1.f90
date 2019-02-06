@@ -279,8 +279,7 @@
     
     REAL(wp),DIMENSION(:,:,:), ALLOCATABLE ::  turb_area
 
-!
-!-- adm output (MV)
+
     REAL(wp),DIMENSION(:), ALLOCATABLE ::  thrust_adm
     REAL(wp),DIMENSION(:), ALLOCATABLE ::  power_rotor 
     REAL(wp),DIMENSION(:), ALLOCATABLE ::  power_adm 
