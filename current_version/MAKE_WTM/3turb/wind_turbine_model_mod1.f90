@@ -1604,12 +1604,6 @@
                           MPI_SUM, comm2d, ierr )
       CALL MPI_ALLREDUCE( power_rotor, power_adm, nturbines, MPI_REAL, &
                           MPI_SUM, comm2d, ierr )
-!
-!-- Wind farm power: sum of wind turbine powers (MV)
-      wf_power    =   0.0
-      DO inot =1, nturbines
-         wf_power  =  wf_power +  power_adm( inot )                     
-      ENDDO
 
 !-- Printing out the outputs of the adm model     
 
@@ -1619,7 +1613,7 @@
             IF ( openfile_turb_mod(400+inot)%opened ) THEN
                WRITE (400+inot, 106) simulated_time, u_rotor(inot), ufree(inot), &
                               turb_ct(inot), aif(inot), phi_yaw(inot)*180.0_wp/pi,  &
-                              thrust_adm(inot), power_adm(inot), wf_power                                   
+                              thrust_adm(inot), power_adm(inot)                                   
                                   
             ELSE
 
@@ -1629,7 +1623,7 @@
                WRITE (400+inot, 105) inot
                WRITE (400+inot, 106) simulated_time, u_rotor(inot), ufree(inot), &
                               turb_ct(inot), aif(inot), phi_yaw(inot)*180.0_wp/pi,  &
-                              thrust_adm(inot), power_adm(inot), wf_power                                
+                              thrust_adm(inot), power_adm(inot)                                
                                  
             ENDIF
           ENDIF
@@ -1641,9 +1635,9 @@
                &'--------------------------------------------'/ &
                &'    Time      Ur        Uinf  ', &
                 '    Ct_adm    a        Yaw(deg)', &
-                '  Thrust     Power     wf_power  '   )
+                '  Thrust     Power '   )
 
-       106 FORMAT (F9.3,1X,F9.3,1X,F9.3,1X,F9.3,1X,F9.3,1X,F9.3,1X,F9.1,2X,F9.1,2X,F9.1)
+       106 FORMAT (F9.3,1X,F9.3,1X,F9.3,1X,F9.3,1X,F9.3,1X,F9.3,1X,F9.1,2X,F9.1,2X)
 
 
    END SUBROUTINE wtm_forces_adm
@@ -1655,7 +1649,6 @@
       IMPLICIT NONE
       
       INTEGER(iwp)    :: inot              !< turbine loop index (turbine id)
-      INTEGER(iwp)    :: counter = 0_iwp  
 
       ! A=array with excitation signal from Matlab. A(u1(t1), u2(t1),...,uN(t1),u1(t2),....)
       ! A = [u1(t1) u1(t2) ... u1(tN) ; u2(t1) u2(t2) ... u2(tN)] 

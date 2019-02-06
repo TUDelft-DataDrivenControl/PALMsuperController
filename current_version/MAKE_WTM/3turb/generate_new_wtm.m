@@ -1,11 +1,24 @@
 clear;clc;
 
+NN            = 1000;
+N             = 3;              % number of turbines
+CT            = 0.89*ones(N,NN);  
 
-N = 3;              % number of turbines
+CT(1,100:end) = .6;
+CT(2,300:end) = .65;
+CT(4,500:end) = .6;
 
-CT = [.89*ones(1,250);
-    .89*ones(1,250); 
-    .89*ones(1,250)];
+% filter
+sys    = eye(N)*ss(-1/5,1/5,1,0);
+sys    = c2d(sys,1);
+x(:,1) = CT(:,1);
+
+for kk=1:NN
+   x(:,kk+1) = sys.a*x(:,kk) + sys.b*CT(:,kk);
+   y(:,kk)   = sys.c*x(:,kk); 
+end
+
+CT = y;
 
 
 %% Create turbine model for PALM

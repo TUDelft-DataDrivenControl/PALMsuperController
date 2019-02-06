@@ -1,10 +1,6 @@
      
-
-     IF ( inot == 1_iwp ) THEN 
-        counter = counter+1_iwp ! time counter
-      ENDIF
-       
-      turb_ct(inot) = A(inot,counter)
+      
+      turb_ct(inot) = A(inot,FLOOR(simulated_time)+1_iwp)
    
    END SUBROUTINE wtm_dct_from_matlab
       
